@@ -1,23 +1,88 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbzCnTUFg4xRjWi0ZvNvOzu7if5HO2ZAL4OPXXLwgpP7epRiCiK_mD85LtOaMzf4F9nY/exec">
+
     <title>Despesas de Viagens - Mannes</title>
-    <script>
-        window.location.replace(
-            "https://script.google.com/macros/s/AKfycbzCnTUFg4xRjWi0ZvNvOzu7if5HO2ZAL4OPXXLwgpP7epRiCiK_mD85LtOaMzf4F9nY/exec"
-        );
-    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #1f2022;
+        }
+
+        #appFrame {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background: #1f2022;
+        }
+
+        #telaCarregando {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            background: #1f2022;
+            color: #ffffff;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #444444;
+            border-top-color: #e30613;
+            border-radius: 50%;
+            animation: girar 0.8s linear infinite;
+        }
+
+        @keyframes girar {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .mensagem {
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <p>Redirecionando para o sistema Despesas de Viagens...</p>
-    <p>
-        Se não for redirecionado automaticamente,
-        <a href="https://script.google.com/macros/s/AKfycbzCnTUFg4xRjWi0ZvNvOzu7if5HO2ZAL4OPXXLwgpP7epRiCiK_mD85LtOaMzf4F9nY/exec">
-            clique aqui para acessar o sistema
-        </a>.
-    </p>
+
+    <div id="telaCarregando">
+        <div class="spinner"></div>
+        <div class="mensagem">
+            Carregando Despesas de Viagens...
+        </div>
+    </div>
+
+    <iframe
+        id="appFrame"
+        title="Sistema Despesas de Viagens Mannes"
+        src="https://script.google.com/macros/s/AKfycbzCnTUFg4xRjWi0ZvNvOzu7if5HO2ZAL4OPXXLwgpP7epRiCiK_mD85LtOaMzf4F9nY/exec"
+        allow="clipboard-read; clipboard-write"
+        onload="document.getElementById('telaCarregando').style.display='none'">
+    </iframe>
+
 </body>
 </html>
